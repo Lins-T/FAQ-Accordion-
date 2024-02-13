@@ -1,1 +1,156 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  
+  --size: 1rem;
+}
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  background-color: var(--Light-pink);
+  background-image: url('../assets/images/background-pattern-mobile.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mainContent {
+  width: clamp(300px, 70vw, 30vw);
+  height: auto;
+  transition: 5ms all;
+  padding-inline: calc(var(--size) * 1);
+  padding-block: calc(var(--size) * 2);
+  background-color: var(--White);
+  border-radius: 12px;
+}
+
+@font-face {
+  font-family: 'head';
+  src: url('../assets/fonts/WorkSans-VariableFont_wght.ttf')
+}
+
+.star {
+  width: 35px;
+}
+
+header {
+  font-family: 'head';
+  display: flex;
+  align-items: center;
+  gap: calc(var(--size) * 1.3);
+  margin-block-end: 2rem;
+  color: var(--Dark-purple);
+}
+
+.questions {
+  margin-block-end: 1.5rem;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--size) * 1.5);
+}
+
+h4 {
+  font-size: 0.8em;
+  transition: 1s all;
+  &:active {
+    color: hsl(292,52.9%,47.8%);
+  }
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+@font-face {
+  font-family: 'Ans';
+  src: url('../assets/fonts/WorkSans-VariableFont_wght.ttf')
+}
+
+
+.close {
+  display: none;
+}
+
+.Answer {
+  display: none;
+  color: var(--Grayish-purple);
+  font-size: 0.8em;
+  font-family: 'Ans';
+  font-weight: 480;
+  padding-inline: calc(var(--size) * 0.6);
+  padding-block: calc(var(--size) * 0.5);
+  line-height: 1.5;
+}
+
+@scope (.showing) {
+  
+  .show {
+    display: none;
+  }
+  
+  .close {
+    display: block;
+  }
+  
+  .Answer {
+    display: block;
+  }
+  
+}
+
+@scope (.btnShow) {
+  .show {
+    display: none;
+  }
+  
+  .close {
+    display: block;
+  }
+  
+  .Answer {
+    display: block;
+    
+  }
+}
+
+@scope (.btnClose) {
+  .show {
+    display: block;
+  }
+  
+  .close {
+    display: none;
+  }
+  
+  .Answer {
+    display: none;
+    
+  }
+}
+
+
+@media (min-width: 900px) {
+  body {
+  background-color: var(--Light-pink);
+  background-image: url('../assets/images/background-pattern-desktop.svg');
+  background-size:  100vw;
+  background-repeat: no-repeat;
+  }
+}
